@@ -38,7 +38,7 @@ img[alt="Baggrundsbillede"] {
   transform: translate(-50%, -50%);
   z-index: 2;
   display: flex;
-  gap: 200px; /* Afstand mellem bobblerne */
+  gap: 60px; /* Afstand mellem bobblerne - mindre for at rumme 3 bobler */
   justify-content: center;
   align-items: center;
 }
@@ -159,6 +159,14 @@ img[alt="Baggrundsbillede"] {
   max-width: 40vw;
   height: auto;
 }
+
+/* Større boble til Byg-akvarie */
+.bobble-item.bobble-byg img {
+  width: 320px;
+  max-width: 45vw;
+}
+
+.bobble-item.bobble-byg .bobble-text{ font-size:44px }
 
 /* Bobble Text */
 .bobble-text {
@@ -296,4 +304,7 @@ img[alt="Baggrundsbillede"] {
     width: 140px;
   }
 }
+
+  /* Bobble action button (lille) */
+  /* Removed top-right bobble-action — builder bobble now sits with other bobbles */
 

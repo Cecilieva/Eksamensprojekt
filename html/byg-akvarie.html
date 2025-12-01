@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Byg dit akvarie</title>
+  <link rel="stylesheet" href="../css/side2.css">
+  <link rel="stylesheet" href="../css/filter.css">
+  <meta name="description" content="Byg dit eget akvarie ved at filtrere og trække fisk fra paletten.">
+</head>
+<body>
+  <!-- baggrund genbruger side2 baggrund -->
+  <img src="../image/Baggrund_2.svg" alt="Baggrundsbillede">
+
+  <!-- overlay hvor store svømmende fisk vises -->
+  <div id="aquarium-swim" class="aquarium-swim" aria-hidden="true"></div>
+
+  <div class="content-container">
+    <h1>Byg dit akvarie</h1>
+    <p class="hint">Filtrér fisk fra paletten, træk dem ind i akvariet, og gem dit valg for at spille med dem.</p>
+
+    <main class="builder-grid">
+      <section class="controls">
+        <h2>Filtrér fisk</h2>
+        <div id="filters"></div>
+        <div style="margin-top:8px;"><button id="btn-show-all">Vis alle</button></div>
+        <hr style="margin:12px 0;">
+        <h3>Palette</h3>
+        <div id="palette" class="palette"></div>
+      </section>
+
+      <section class="aquarium">
+        <h2>Dit akvarie</h2>
+        <div id="aquarium" class="aquarium-area" aria-label="Akvarie; drop fisk her"></div>
+        <div class="actions">
+          <button id="btn-save">Gem valg og spil</button>
+          <button id="btn-clear">Ryd akvarie</button>
+        </div>
+        <p class="hint">Træk fisk fra paletten og slip dem i akvariet. Klik på en fisk i akvariet for at fjerne den.</p>
+      </section>
+    </main>
+
+    <a class="tilbage-knap" href="spil-med-os.html">◀ Tilbage</a>
+  </div>
+
+  <script src="../js/filter.js" defer></script>
+</body>
+</html>

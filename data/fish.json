@@ -1,0 +1,29 @@
+{
+  "vendespilBrikker": [
+    { "id": 1, "image": "../image/kirurgfisk.png" },
+    { "id": 1, "image": "../image/kirurgfisk.png" },
+    { "id": 2, "image": "../image/guppyfisk.png" },
+    { "id": 2, "image": "../image/guppyfisk.png" },
+    { "id": 3, "image": "../image/klovnefisk.png" },
+    { "id": 3, "image": "../image/klovnefisk.png" },
+    { "id": 4, "image": "../image/rejefisk.png" },
+    { "id": 4, "image": "../image/rejefisk.png" }
+  ],
+  "carousel": [
+    { "type": "palet", "image": "../image/Palet.png" },
+    { "type": "gubbi", "image": "../image/gubbi.png" },
+    { "type": "reje", "image": "../image/reje.png" },
+    { "type": "nemofisk", "image": "../image/nemofisk.png" },
+    { "type": "raevfisk", "image": "../image/Raevfisk.png" }
+  ],
+  "infoImages": {
+    "nemofisk": "../image/klovnefiskinfo.png",
+    "palet": "../image/Paletkirugen.png",
+    "rævfisk": "../image/Raevefjaes.png",
+    "reje": "../image/reje1.png",
+    "gubbi": "../image/gubbiinfo.png"
+  }
+}
+
+
+

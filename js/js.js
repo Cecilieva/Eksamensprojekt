@@ -69,27 +69,30 @@ function showFishInfo(fishType) {
     const infoImage = document.getElementById('info-image');
     const speakerBtn = document.getElementById('speaker-button');
     
-    // Sæt det rigtige info-billede baseret på fisketype 
-    if (fishType === 'nemofisk') {
-        infoImage.src = '../image/klovnefiskinfo.png';
-        infoImage.alt = 'Klovnefisk information';
-        console.log('Nemofisk billede sat');
-    } else if (fishType === 'palet') {
-        infoImage.src = '../image/Paletkirugen.png';
-        infoImage.alt = 'Paletkirurg information';
-        console.log('Palet billede sat');
-    } else if (fishType === 'rævfisk') {
-        infoImage.src = '../image/Raevefjaes.png';
-        infoImage.alt = 'Rævfisk information';
-        console.log('Rævfisk billede sat til:', infoImage.src);
-    } else if (fishType === 'reje') {
-        infoImage.src = '../image/reje1.png';
-        infoImage.alt = 'Reje information';
-        console.log('Reje billede sat til:', infoImage.src);
-    } else if (fishType === 'gubbi') {
-        infoImage.src = '../image/gubbiinfo.png';
-        infoImage.alt = 'Gubbi information';
-        console.log('Gubbi billede sat til:', infoImage.src);
+        // Sæt det rigtige info-billede baseret på fisketype, hentet fra data/fish.json hvis tilgængelig
+        if (window.__fishData && window.__fishData.infoImages && window.__fishData.infoImages[fishType]) {
+            infoImage.src = window.__fishData.infoImages[fishType];
+            infoImage.alt = fishType + ' information';
+            console.log('Info billede sat fra JSON for:', fishType, infoImage.src);
+        } else {
+            // Fallback hardcoded mapping
+            if (fishType === 'nemofisk') {
+                infoImage.src = '../image/klovnefiskinfo.png';
+                infoImage.alt = 'Klovnefisk information';
+            } else if (fishType === 'palet') {
+                infoImage.src = '../image/Paletkirugen.png';
+                infoImage.alt = 'Paletkirurg information';
+            } else if (fishType === 'rævfisk') {
+                infoImage.src = '../image/Raevefjaes.png';
+                infoImage.alt = 'Rævfisk information';
+            } else if (fishType === 'reje') {
+                infoImage.src = '../image/reje1.png';
+                infoImage.alt = 'Reje information';
+            } else if (fishType === 'gubbi') {
+                infoImage.src = '../image/gubbiinfo.png';
+                infoImage.alt = 'Gubbi information';
+            }
+            console.log('Info billede sat fra fallback for:', fishType, infoImage.src);
     }
 
     // Vis højtaler knappen for alle fisk-info billeder
@@ -141,6 +144,12 @@ function cornerButtonClick() {
 
 // Tilføj interaktive effekter til billederne
 document.addEventListener('DOMContentLoaded', function() {
+        // Load fish data JSON so we can use it across scripts (info images, carousel, vendespil etc.)
+        fetch('../data/fish.json')
+            .then(r => r.json())
+            .then(d => { window.__fishData = d; })
+            .catch(err => { console.warn('Kunne ikke indlæse data/fish.json:', err); });
+
     const images = document.querySelectorAll('.image-item img');
     
     images.forEach(img => {
