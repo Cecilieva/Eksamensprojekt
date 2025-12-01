@@ -1,0 +1,111 @@
+/* Style CSS */
+
+
+body {
+  background-image: url('../image/baggrundsbillede.png');
+  background-size: cover;
+  display: flex;
+  justify-content: center;   /* centrerer vandret */
+  align-items: center;       /* centrerer lodret */
+  height: 100vh;             /* gør body lige så høj som hele skærmen */
+  margin: 0; 
+}
+.tilbage-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1500;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border-radius: 50%;
+    overflow: hidden;
+    animation: float 4s ease-in-out infinite;
+}
+
+.tilbage-button:hover {
+    transform: scale(1.1) translateY(-10px);
+    opacity: 0.8;
+}
+
+.tilbage-button img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    display: block;
+}
+
+
+
+#vendespilsbrikker {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  row-gap: 75px;      /* afstand mellem rækkerne */
+  column-gap: 75px;   /* afstand mellem kolonnerne */
+  justify-content: center;   /* centrerer brikkerne inde i gridd’et */
+}
+
+.brik img {
+  width: 200px;
+  height: 250px;
+  cursor: pointer;
+}
+/* container for brikken */
+.brik {
+  position: relative;
+  width: 200px;
+  height: 250px;
+  perspective: 1000px;              /* 3D dybde */
+}
+
+/* det indre “kort” der roteres */
+.brik .kort {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 480ms cubic-bezier(.2,.7,.2,1); /* smooth easing */
+  will-change: transform;            /* hint til browseren */
+}
+
+/* begge sider fylder hele kortet */
+.brik .forside,
+.brik .bagside {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  backface-visibility: hidden;       /* skjul bagsiden når væk */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* vend forside 180° fra start, så den kommer frem ved flip */
+.brik .forside {
+  transform: rotateY(180deg);
+}
+
+/* når brikken er vendt, roter hele kortet */
+.brik.vendt .kort {
+  transform: rotateY(180deg);
+}
+
+/* valgfrit: lidt “snap” følelse */
+.brik:active .kort {
+  transition-duration: 360ms;
+}
+
+/* matcher/fundet: slå klik fra og giv visuel status */
+.brik.fundet {
+  pointer-events: none;
+  filter: saturate(0.8) brightness(0.95);
+  opacity: 0.9;
+}
+
+/* respekt for brugere der ikke ønsker animationer */
+@media (prefers-reduced-motion: reduce) {
+  .brik .kort { transition: none; }
+}

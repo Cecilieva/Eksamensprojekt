@@ -1,0 +1,74 @@
+/* Flappy fish CSS */
+
+/* Fyld siden og vis din PNG som baggrund */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: url('../image/baggrundsbillede.png') center/cover no-repeat fixed;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+
+/* Centrer canvas pænt */
+.wrap {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+canvas#game {
+  width: min(95vw, 540px);                     /* responsivt: bredde på skærm */
+  height: calc(min(95vw, 540px) * 16 / 9);     /* hold 16:9-forhold */
+  max-height: 90vh;
+  background: transparent;                     /* så body-baggrund kan ses */
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.35), inset 0 0 40px rgba(255,255,255,.05);
+  display: block;
+}
+
+/* UI-hint over spillet */
+.hud {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+/*
+.hint {
+  background: rgba(0,0,0,.45);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  letter-spacing: .2px;
+}
+*/
+
+/* Tilbage knap i højre hjørne */
+.tilbage-button-left {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1500;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.tilbage-button-left:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.tilbage-button-left img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    display: block;
+}

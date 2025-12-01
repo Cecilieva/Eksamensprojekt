@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/css.css">
+</head>
+<body>
+    <!-- Info popup modal -->
+    <div id="info-modal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeModal()">
+                <img src="../image/Kryds.png" alt="Kryds"></button>
+            <button class="speaker-btn" id="speaker-button" onclick="event.stopPropagation()" style="display: none;">
+                <img src="../image/hoejtaler.png" alt="Højtaler">
+            </button> 
+            <img id="info-image" src="" alt="Fisk info">
+            <img class="vdvm-logo" src="../image/vdvm.png" alt="VDVM Logo">
+        </div>
+    </div>
+    
+    <button class="tilbage-button" onclick="tilbageButtonClick()">
+        <img src="../image/tilbage.png" alt="Tilbage knap"> 
+    </button> 
+    
+    <button class="corner-button" onclick="cornerButtonClick()">
+        <img src="../image/Boble i hjørnet.png" alt="Boble knap">
+    </button>
+    
+    <div class="carousel-container">
+        <div class="carousel-track">
+            <div class="image-item">
+                <img src="../image/Palet.png" alt="Palet">
+            </div>
+            <div class="image-item">
+                <img src="../image/gubbi.png" alt="Gubbi">
+            </div>
+            <div class="image-item">
+                <img src="../image/reje.png" alt="Reje">
+            </div>
+            <div class="image-item">
+                <img src="../image/nemofisk.png" alt="Nemofisk">
+            </div>
+            <div class="image-item">
+                <img src="../image/Raevfisk.png" alt="Rævfisk">
+            </div>
+            <div class="image-item">
+                <img src="../image/Palet.png" alt="Palet">
+            </div>
+            <div class="image-item">
+                <img src="../image/gubbi.png" alt="Gubbi">
+            </div>
+            <div class="image-item">
+                <img src="../image/reje.png" alt="Reje">
+            </div>
+            <div class="image-item">
+                <img src="../image/nemofisk.png" alt="Nemofisk">
+            </div>
+            <div class="image-item">
+                <img src="../image/Raevfisk.png" alt="Rævfisk">
+            </div>
+            <div class="image-item">
+                <img src="../image/Palet.png" alt="Palet">
+            </div>
+            <div class="image-item">
+                <img src="../image/gubbi.png" alt="Gubbi">
+            </div>
+            <div class="image-item">
+                <img src="../image/reje.png" alt="Reje">
+            </div>
+            <div class="image-item">
+                <img src="../image/nemofisk.png" alt="Nemofisk">
+            </div>
+            <div class="image-item">
+                <img src="../image/Raevfisk.png" alt="Rævfisk">
+            </div>
+        </div>
+        
+        <button class="carousel-nav prev" onclick="scrollCarousel(-1)">
+            <img src="../image/pil.png" alt="Forrige">
+        </button>
+        <button class="carousel-nav next" onclick="scrollCarousel(1)">
+            <img src="../image/pil.png" alt="Næste">
+        </button>
+    </div>
+    
+    <script src="../js/js.js"></script>
+</body>
+</html>
