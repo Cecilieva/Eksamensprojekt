@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mal din fisk</title>
+  <link rel="stylesheet" href="../css/byg2.css">
+</head>
+<body>
+  <div class="scene">
+    <img src="../image/baggrund.png" alt="baggrund" class="background">
+
+    <!-- Nulstil-knap -->
+    <button class="reset-btn" id="resetBtn">🧽 Nulstil farver</button>
+
+    <div class="fish-layout">
+      <!-- 🐠 Indsæt hele din Byg_2.svg her -->
+      <svg id="byg2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+          <!-- Paletter (centreret under fisken). x positions beregnet for total width 380, spacing 20px -->
+          <g id="palettes" transform="translate(210,520)">
+            <image id="color1" x="0"   y="0" width="60" height="60" href="../image/Farvepaletpink.png" data-color="#E329C7" opacity="1"/>
+            <image id="color2" x="80"  y="0" width="60" height="60" href="../image/paletgrøn.png" data-color="#B8E329" opacity="1"/>
+            <image id="color3" x="160" y="0" width="60" height="60" href="../image/paletblå.png" data-color="#204BC6" opacity="1"/>
+            <image id="color4" x="240" y="0" width="60" height="60" href="../image/paletgul.png" data-color="#FBE900" opacity="1"/>
+            <image id="color5" x="320" y="0" width="60" height="60" href="../image/paletorange.png" data-color="#F37D00" opacity="1"/>
+          </g>
+
+        <!-- Hvid overlay centreret bag fisken -->
+        <image class="hvidoverlay" id="hvidoverlay" href="../image/hvidoverlay.png" />
+
+        <!-- Fisk: indlæses fra ekstern SVG hvis angivet via data-src -->
+        <g id="fish" data-src="../image/Dori-uden-farve.svg"></g>
+      </svg>
+    </div>
+  </div>
+
+  <script src="../js/byg2.js" defer></script>
+</body>
+</html>

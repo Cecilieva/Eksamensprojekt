@@ -1,0 +1,122 @@
+/* CSS extracted from html/byg2.html */
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #b3ecff;
+  font-family: 'Comic Sans MS', sans-serif;
+}
+
+.scene {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.fish-layout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* Palette images inside the SVG - give them pointer and a subtle shadow + hover effect */
+svg image[id^="color"]{
+  cursor: pointer;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.12));
+  transition: transform 150ms ease, filter 150ms ease, opacity 150ms ease;
+}
+
+/* When JS sets opacity to 0.6 for unselected, ensure readability */
+svg image[id^="color"][opacity="0.6"]{
+  opacity:0.6;
+  transform: scale(0.98);
+}
+
+
+/* Bobler */
+.bubble {
+  position: absolute;
+  bottom: -50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  animation: rise 6s linear infinite;
+  z-index: 1;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-120vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Gnist/glimt effekt */
+.sparkle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(white, rgba(255,255,255,0));
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkleFade 0.6s ease-out forwards;
+}
+
+@keyframes sparkleFade {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(2); }
+}
+
+/* Nulstil-knap */
+.reset-btn {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  background: #ffffffaa;
+  border: 3px solid #0077cc;
+  border-radius: 15px;
+  padding: 15px 25px;
+  font-size: 20px;
+  color: #0044cc;
+  cursor: pointer;
+  z-index: 3;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.reset-btn:hover {
+  background: #ffffff;
+  transform: scale(1.1);
+}
+
+.hvidoverlay {
+    position: absolute;
+    top: 0;
+    left: -100;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 4;
+}
